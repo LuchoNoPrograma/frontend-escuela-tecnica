@@ -1,6 +1,12 @@
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
 @use '@angular/material' as mat;
+@use "sass:map";
+
+//TAILWIND
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 // Plus imports for other components in your app.
 
 // Include the common styles for Angular Material. We include this here so that you only
@@ -14,10 +20,9 @@
 $trinta-primary: mat.define-palette(mat.$indigo-palette);
 $trinta-success: mat.define-palette(mat.$green-palette);
 $trinta-error: mat.define-palette(mat.$red-palette);
-$trinta-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
-
-// The warn palette is optional (defaults to red).
-$trinta-warn: mat.define-palette(mat.$red-palette);
+$trinta-info: mat.define-palette(mat.$blue-palette);
+$trinta-accent: mat.define-palette(mat.$pink-palette);
+$trinta-warning: mat.define-palette(mat.$red-palette);
 
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
@@ -26,10 +31,15 @@ $trinta-theme: mat.define-light-theme((
         primary: $trinta-primary,
         success: $trinta-success,
         error: $trinta-error,
+        info: $trinta-info,
         accent: $trinta-accent,
-        warn: $trinta-warn,
+        warn: $trinta-warning,
     )
 ));
+
+.xd{
+  @apply text-2xl
+}
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
@@ -44,7 +54,7 @@ $trinta-theme: mat.define-light-theme((
     --dangerColor: #EE368C;
     --infoColor: #2DB6F5;
     --warningColor: #ffb264;
-    --successColor: #2ed47e;
+    --successColor: #5CB85C;
     --darkColor: #262626;
     --blackColor: #5b5b98;
     --whiteColor: #ffffff;

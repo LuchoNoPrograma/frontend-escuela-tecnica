@@ -15,9 +15,10 @@ import {MatChipsModule} from "@angular/material/chips";
   ],
   templateUrl: './adm-cursos-lista.component.html',
   styles: `
-    table {
-      width: 100%;
-    }`
+    .mat-column-nombreCurso{
+      min-width: 40% !important;
+    }
+  `
 })
 export class AdmCursosListaComponent implements OnInit {
   listaCurso: Curso[];
