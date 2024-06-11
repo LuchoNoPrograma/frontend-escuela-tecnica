@@ -1,0 +1,31 @@
+<mat-card
+>
+  <mat-card-header>
+    <mat-card-title>
+      <h5 class="mt-0 mb-0">
+        Lista de cursos
+      </h5>
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <table mat-table [dataSource]="listaCurso" matSort>
+      <!-- Position Column -->
+      <ng-container matColumnDef="nombreCurso" >
+        <th mat-header-cell mat-sort-header *matHeaderCellDef> Nombre </th>
+        <td mat-cell *matCellDef="let curso"> {{ curso.nombreCurso }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="idCurso">
+        <th mat-header-cell *matHeaderCellDef> ID</th>
+        <td mat-cell *matCellDef="let curso"> {{ curso.idCurso }}</td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="columnasListaCurso"></tr>
+      <tr mat-row *matRowDef="let fila; columns: columnasListaCurso;"></tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[1, 10, 20]"
+                   showFirstLastButtons
+                   aria-label="Select page of periodic elements">
+    </mat-paginator>
+  </mat-card-content>
+</mat-card>
