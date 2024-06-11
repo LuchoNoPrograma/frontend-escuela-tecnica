@@ -1,19 +1,17 @@
-import {AfterViewInit, Component, inject, OnDestroy, OnInit, ViewChild} from '@angular/core';
-import {MatCard, MatCardHeader, MatCardModule} from "@angular/material/card";
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {MatCardModule} from "@angular/material/card";
 import {CursoService} from "../../../core/services/curso.service";
-import {Observable} from "rxjs";
 import {Curso} from "../../../core/models/curso.model";
-import {HttpClient} from "@angular/common/http";
-import {AsyncPipe} from "@angular/common";
 import {MatTableDataSource, MatTableModule} from "@angular/material/table";
 import {MatPaginator, MatPaginatorModule} from "@angular/material/paginator";
 import {MatSort, MatSortModule} from "@angular/material/sort";
+import {MatChipsModule} from "@angular/material/chips";
 
 @Component({
   selector: 'app-adm-cursos-lista',
   standalone: true,
   imports: [
-    MatCardModule, MatTableModule, MatPaginatorModule, MatSortModule
+    MatCardModule, MatTableModule, MatPaginatorModule, MatSortModule, MatChipsModule
   ],
   templateUrl: './adm-cursos-lista.component.html',
   styles: `
@@ -23,8 +21,8 @@ import {MatSort, MatSortModule} from "@angular/material/sort";
 })
 export class AdmCursosListaComponent implements OnInit {
   listaCurso: Curso[];
-  columnasListaCurso: string[] = ['nombreCurso', 'idCurso'];
-  dataSource: MatTableDataSource<any> = new MatTableDataSource()
+  columnasListaCurso: string[] = ['nombreCurso', 'fechaInicio', 'fechaFin', 'estado', 'modalidadYNivel', 'idCurso'];
+  dataSource: MatTableDataSource<Curso> = new MatTableDataSource<Curso>()
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 

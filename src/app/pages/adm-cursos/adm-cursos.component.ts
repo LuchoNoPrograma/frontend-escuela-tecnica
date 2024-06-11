@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {RouterOutlet} from "@angular/router";
 
 @Component({
@@ -8,10 +8,7 @@ import {RouterOutlet} from "@angular/router";
     RouterOutlet
   ],
   template: `
-    <p>
-      adm-cursos works!
-      <router-outlet></router-outlet>
-    </p>
+    <router-outlet></router-outlet>
   `,
   styles: ``
 })
