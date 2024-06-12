@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {environment} from "../../../environment/environment";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {Curso} from "../models/curso.model";
+import {CursoConEjecucionDto, CursoEjecucionDto} from "../models/backend.model";
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +13,7 @@ export class CursoService {
   constructor(private http: HttpClient) {
   }
 
-  listarCursos(): Observable<Curso[]> {
-    return this.http.get<Curso[]>(this.apiUrl+'/curso')
+  listarCursosEnGeneral(): Observable<CursoConEjecucionDto []> {
+    return this.http.get<CursoConEjecucionDto[]>(this.apiUrl+'/public/curso')
   }
 }
