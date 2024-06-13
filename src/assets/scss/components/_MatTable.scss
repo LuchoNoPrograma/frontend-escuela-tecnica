@@ -1,5 +1,11 @@
 .mat-mdc-table{
-  .mat-mdc-cell{
-    font-size: 0.75em !important;
+  .mat-mdc-row{
+    &:nth-child(even) {
+      background-color: #f3f6ff; // Color de fondo para filas pares
+    }
+
+    .mat-mdc-cell{
+      font-size: 0.75em !important;
+    }
   }
 }

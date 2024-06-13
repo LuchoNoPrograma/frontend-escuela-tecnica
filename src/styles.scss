@@ -53,7 +53,7 @@ $trinta-theme: mat.define-light-theme((
 
 /* You can add global styles to this file, and also import other style files */
 :root {
-    --fontFamily: "Poppins", sans-serif;
+    --fontFamily: "Roboto", sans-serif !important;
     --headingFontFamily: "Inter", sans-serif;
     --primaryColor: #3761ee;
     --dangerColor: #EE368C;
