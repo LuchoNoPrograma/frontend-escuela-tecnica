@@ -1,0 +1,14 @@
+.shared-chip {
+  @apply border-2 py-1 px-1.5 rounded-3xl font-bold text-2xs text-center inline-block;
+
+  @each $color, $values in (
+    primary: (bg-primary-50, border-primary-500, text-primary-500),
+    success: (bg-success-50, border-success-500, text-success-500),
+    error: (bg-error-50, border-error-500, text-error-500),
+    warning: (bg-warning-50, border-warning-500, text-warning-500)
+  ) {
+    &--#{$color} {
+      @apply #{nth($values, 1)} #{nth($values, 2)} #{nth($values, 3)};
+    }
+  }
+}

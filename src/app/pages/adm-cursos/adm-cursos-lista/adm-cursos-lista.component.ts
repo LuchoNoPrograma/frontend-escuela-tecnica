@@ -1,12 +1,12 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatCardModule} from "@angular/material/card";
-import {CursoService} from "../../../core/services/curso.service";
 import {MatTableDataSource, MatTableModule} from "@angular/material/table";
 import {MatPaginator, MatPaginatorModule} from "@angular/material/paginator";
 import {MatSort, MatSortModule} from "@angular/material/sort";
 import {MatChipsModule} from "@angular/material/chips";
-import {CursoConEjecucionDto} from "../../../core/models/backend.model";
-import {SharedChipComponent} from "../../../shared/components/shared-chip/shared-chip.component";
+import {SharedChipComponent} from "@/app/shared/components/shared-chip/shared-chip.component";
+import {CursoConEjecucionDto} from "@/app/core/model/backend.model";
+import {CursoService} from "@/app/core/services/curso.service";
 
 @Component({
   selector: 'app-adm-cursos-lista',
@@ -16,8 +16,8 @@ import {SharedChipComponent} from "../../../shared/components/shared-chip/shared
   ],
   templateUrl: './adm-cursos-lista.component.html',
   styles: `
-    .mat-column-nombre{
-      min-width: 35% !important;
+    .mat-column-nombre {
+      min-width: 27.5% !important;
     }
   `
 })

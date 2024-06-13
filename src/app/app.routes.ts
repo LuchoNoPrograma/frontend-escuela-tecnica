@@ -156,9 +156,7 @@ import {ListboxComponent} from './ui-elements/listbox/listbox.component';
 import {ListComponent} from './ui-elements/list/list.component';
 import {InputComponent} from './ui-elements/input/input.component';
 import {TooltipComponent} from './ui-elements/tooltip/tooltip.component';
-import {AdmCursosComponent} from "./pages/adm-cursos/adm-cursos.component";
-import {AdmCursosListaComponent} from "./pages/adm-cursos/adm-cursos-lista/adm-cursos-lista.component";
-import {AdmCursosFormComponent} from "./pages/adm-cursos/adm-cursos-form/adm-cursos-form.component";
+import {AdmCursosFormComponent} from "@pages/adm-cursos/adm-cursos-form/adm-cursos-form.component";
 
 export const routes: Routes = [
   {path: '', component: EcommerceComponent},

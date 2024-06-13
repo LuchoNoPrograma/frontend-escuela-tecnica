@@ -2,6 +2,7 @@
 // For more information: https://material.angular.io/guide/theming
 @use '@angular/material' as mat;
 @use "sass:map";
+@use '@material/typography' as mdc-typography;
 
 //TAILWIND
 @tailwind base;
@@ -45,6 +46,10 @@ $trinta-theme: mat.define-light-theme((
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
 @include mat.all-component-themes($trinta-theme);
+
+@import './assets/scss/components/MatTable';
+
+
 
 /* You can add global styles to this file, and also import other style files */
 :root {
