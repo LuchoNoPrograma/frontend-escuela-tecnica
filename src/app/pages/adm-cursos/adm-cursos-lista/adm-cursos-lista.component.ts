@@ -17,7 +17,7 @@ import {CursoService} from "@/app/core/services/curso.service";
   templateUrl: './adm-cursos-lista.component.html',
   styles: `
     .mat-column-nombre {
-      min-width: 27.5% !important;
+      min-width: 25% !important;
     }
   `
 })

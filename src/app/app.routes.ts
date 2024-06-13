@@ -1,12 +1,5 @@
 import {Routes} from '@angular/router';
 import {NotFoundComponent} from './common/not-found/not-found.component';
-import {EcommerceComponent} from './dashboard/ecommerce/ecommerce.component';
-import {CrmComponent} from './dashboard/crm/crm.component';
-import {ProjectManagementComponent} from './dashboard/project-management/project-management.component';
-import {LmsComponent} from './dashboard/lms/lms.component';
-import {HelpDeskComponent} from './dashboard/help-desk/help-desk.component';
-import {EcommercePageComponent} from './pages/ecommerce-page/ecommerce-page.component';
-import {EProductsGridComponent} from './pages/ecommerce-page/e-products-grid/e-products-grid.component';
 import {EProductsListComponent} from './pages/ecommerce-page/e-products-list/e-products-list.component';
 import {EProductDetailsComponent} from './pages/ecommerce-page/e-product-details/e-product-details.component';
 import {EOrdersListComponent} from './pages/ecommerce-page/e-orders-list/e-orders-list.component';
@@ -49,10 +42,6 @@ import {EventsPageComponent} from './pages/events-page/events-page.component';
 import {InvoicesPageComponent} from './pages/invoices-page/invoices-page.component';
 import {InvoicesComponent} from './pages/invoices-page/invoices/invoices.component';
 import {InvoiceDetailsComponent} from './pages/invoices-page/invoice-details/invoice-details.component';
-import {AppsComponent} from './apps/apps.component';
-import {KanbanBoardComponent} from './apps/kanban-board/kanban-board.component';
-import {ToDoListComponent} from './apps/to-do-list/to-do-list.component';
-import {ContactsComponent} from './apps/contacts/contacts.component';
 import {PricingPageComponent} from './pages/pricing-page/pricing-page.component';
 import {StarterComponent} from './starter/starter.component';
 import {FaqPageComponent} from './pages/faq-page/faq-page.component';
@@ -86,13 +75,6 @@ import {GalleryPageComponent} from './pages/gallery-page/gallery-page.component'
 import {SearchPageComponent} from './pages/search-page/search-page.component';
 import {TestimonialsPageComponent} from './pages/testimonials-page/testimonials-page.component';
 import {WidgetsComponent} from './widgets/widgets.component';
-import {FileManagerComponent} from './apps/file-manager/file-manager.component';
-import {CalendarComponent} from './apps/calendar/calendar.component';
-import {ChatComponent} from './apps/chat/chat.component';
-import {EmailComponent} from './apps/email/email.component';
-import {InboxComponent} from './apps/email/inbox/inbox.component';
-import {ComposeComponent} from './apps/email/compose/compose.component';
-import {ReadComponent} from './apps/email/read/read.component';
 import {SocialFeedPageComponent} from './pages/social-feed-page/social-feed-page.component';
 import {MyProfileComponent} from './my-profile/my-profile.component';
 import {AuthenticationComponent} from './authentication/authentication.component';
@@ -159,37 +141,78 @@ import {TooltipComponent} from './ui-elements/tooltip/tooltip.component';
 import {AdmCursosFormComponent} from "@pages/adm-cursos/adm-cursos-form/adm-cursos-form.component";
 
 export const routes: Routes = [
-  {path: '', component: EcommerceComponent},
-  {path: 'crm', component: CrmComponent},
-  {path: 'project-management', component: ProjectManagementComponent},
-  {path: 'lms', component: LmsComponent},
-  {path: 'help-desk', component: HelpDeskComponent},
+  {
+    path: '',
+    loadComponent: () => import('@pages/ecommerce-page/ecommerce-page.component').then(c => c.EcommercePageComponent)
+  },
+  {
+    path: 'crm',
+    loadComponent: () => import('@pages/crm-page/crm-page.component').then(c => c.CrmPageComponent)
+  },
+  {
+    path: 'project-management',
+    loadComponent: () => import('@pages/project-management-page/project-management-page.component').then(c => c.ProjectManagementPageComponent)
+  },
+  {
+    path: 'lms',
+    loadComponent: () => import('@pages/lms-page/lms-page.component').then(c => c.LmsPageComponent)
+  },
+  {
+    path: 'help-desk',
+    loadComponent: () => import('@pages/help-desk-page/help-desk-page.component').then(c => c.HelpDeskPageComponent)
+  },
   {
     path: 'apps',
-    component: AppsComponent,
+    loadComponent: () => import('@/app/apps/apps.component').then(c => c.AppsComponent),
     children: [
-      {path: '', component: ToDoListComponent},
-      {path: 'kanban-board', component: KanbanBoardComponent},
-      {path: 'file-manager', component: FileManagerComponent},
-      {path: 'calendar', component: CalendarComponent},
-      {path: 'contacts', component: ContactsComponent},
-      {path: 'chat', component: ChatComponent},
+      {
+        path: '',
+        loadComponent: () => import('@/app/apps/to-do-list/to-do-list.component').then(c => c.ToDoListComponent)
+      },
+      {
+        path: 'kanban-board',
+        loadComponent: () => import('@/app/apps/kanban-board/kanban-board.component').then(c => c.KanbanBoardComponent)
+      },
+      {
+        path: 'file-manager',
+        loadComponent: () => import('@/app/apps/file-manager/file-manager.component').then(c => c.FileManagerComponent)
+      },
+      {
+        path: 'calendar',
+        loadComponent: () => import('@/app/apps/calendar/calendar.component').then(c => c.CalendarComponent)
+      },
+      {
+        path: 'contacts',
+        loadComponent: () => import('@/app/apps/contacts/contacts.component').then(c => c.ContactsComponent)
+      },
+      {
+        path: 'chat', loadComponent: () => import('@/app/apps/chat/chat.component').then(c => c.ChatComponent)
+      },
       {
         path: 'email',
-        component: EmailComponent,
+        loadComponent: () => import('@/app/apps/email/email.component').then(c => c.EmailComponent),
         children: [
-          {path: '', component: InboxComponent},
-          {path: 'compose', component: ComposeComponent},
-          {path: 'read', component: ReadComponent}
+          {path: '', loadComponent: () => import('@/app/apps/email/inbox/inbox.component').then(c => c.InboxComponent)},
+          {
+            path: 'compose',
+            loadComponent: () => import('@/app/apps/email/compose/compose.component').then(c => c.ComposeComponent)
+          },
+          {
+            path: 'read',
+            loadComponent: () => import('@/app/apps/email/read/read.component').then(c => c.ReadComponent)
+          }
         ]
       }
     ]
   },
   {
     path: 'ecommerce-page',
-    component: EcommercePageComponent,
+    loadComponent: () => import('@pages/ecommerce-page/ecommerce-page.component').then(c => c.EcommercePageComponent),
     children: [
-      {path: '', component: EProductsGridComponent},
+      {
+        path: '',
+        loadComponent: () => import('@pages/ecommerce-page/e-products-grid/e-products-grid.component').then(c => c.EProductsGridComponent)
+      },
       {path: 'products-list', component: EProductsListComponent},
       {path: 'product-details', component: EProductDetailsComponent},
       {path: 'create-product', component: ECreateProductComponent},
@@ -202,7 +225,7 @@ export const routes: Routes = [
       {path: 'seller-details', component: ESellerDetailsComponent},
     ]
   },
-  {
+  /*{
     path: 'crm-page',
     component: CrmPageComponent,
     children: [
@@ -364,7 +387,7 @@ export const routes: Routes = [
       {path: 'users-list', component: UsersListComponent},
       {path: 'add-user', component: AddUserComponent},
     ]
-  },
+  },*/
   {
     path: 'cursos',
     loadComponent: () => import('@pages/adm-cursos/adm-cursos.component').then(c => c.AdmCursosComponent),
@@ -376,7 +399,7 @@ export const routes: Routes = [
       {path: 'formulario', component: AdmCursosFormComponent}
     ]
   },
-  {
+  /*{
     path: 'profile',
     component: ProfilePageComponent,
     children: [
@@ -409,7 +432,7 @@ export const routes: Routes = [
       {path: 'confirm-email', component: ConfirmEmailComponent},
       {path: 'logout', component: LogoutComponent}
     ]
-  },
+  },*/
   // Here add new pages component
 
   {path: '**', component: NotFoundComponent} // This line will remain down from the whole pages component list

@@ -1,4 +1,4 @@
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import {HttpClient,} from '@angular/common/http';
 import { Component, ViewChild, AfterViewInit } from '@angular/core';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatSort, MatSortModule, SortDirection } from '@angular/material/sort';
@@ -11,7 +11,11 @@ import { DatePipe } from '@angular/common';
 @Component({
     selector: 'app-retrieving-data-through-http',
     standalone: true,
-    imports: [MatProgressSpinnerModule, MatTableModule, MatSortModule, MatPaginatorModule, DatePipe, HttpClientModule],
+    imports: [MatProgressSpinnerModule, MatTableModule, MatSortModule, MatPaginatorModule, DatePipe,
+// TODO: `HttpClientModule` should not be imported into a component directly.
+// Please refactor the code to add `provideHttpClient()` call to the provider list in the
+// application bootstrap logic and remove the `HttpClientModule` import from this component.
+],
     templateUrl: './retrieving-data-through-http.component.html',
     styleUrl: './retrieving-data-through-http.component.scss'
 })
