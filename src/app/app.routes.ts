@@ -225,7 +225,7 @@ export const routes: Routes = [
       {path: 'seller-details', component: ESellerDetailsComponent},
     ]
   },
-  /*{
+  {
     path: 'crm-page',
     component: CrmPageComponent,
     children: [
@@ -387,7 +387,7 @@ export const routes: Routes = [
       {path: 'users-list', component: UsersListComponent},
       {path: 'add-user', component: AddUserComponent},
     ]
-  },*/
+  },
   {
     path: 'cursos',
     loadComponent: () => import('@pages/adm-cursos/adm-cursos.component').then(c => c.AdmCursosComponent),

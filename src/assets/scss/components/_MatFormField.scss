@@ -1,0 +1,9 @@
+@use '@angular/material' as mat;
+//input outline
+.mdc-notched-outline__notch{
+  border-right: 0 !important;
+}
+
+/*.mat-button--success{
+  @include mat.button-color($trinta-theme, success);
+}*/

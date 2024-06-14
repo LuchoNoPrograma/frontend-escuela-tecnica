@@ -11,20 +11,14 @@
 
     <div class="flex items-center">
       <div>
-        <mat-form-field class="w-96" [hideRequiredMarker]="true">
-          <mat-label>Filtrado por nombre del curso, estado, modalidad</mat-label>
-          <input matInput type="text" (input)="aplicarFiltro($event)">
-          @if (filtroBusqueda) {
-            <button matSuffix mat-icon-button aria-label="Clear" (click)="filtroBusqueda=''">
-              <span class="material-symbols-outlined">
-                    search
-                </span>
-            </button>
-          }
+        <mat-form-field class="w-96" size="10" appearance="outline"
+                        subscriptSizing="dynamic">
+          <mat-label>Busqueda</mat-label>
+          <input matInput (input)="aplicarFiltro($event)">
         </mat-form-field>
       </div>
       <div>
-        <button mat-button>Registrar</button>
+        <button mat-flat-button color="primary" class="text-xs">Registrar</button>
       </div>
     </div>
 
